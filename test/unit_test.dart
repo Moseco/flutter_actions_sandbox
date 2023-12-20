@@ -4,6 +4,7 @@ void main() {
   group('GroupName', () {
     test('TestName', () {
       expect(1 + 1, 2);
+      expect(1 + 2, 3);
     });
   });
 }

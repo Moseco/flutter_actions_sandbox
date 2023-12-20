@@ -14,13 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Flutter
+      - name: Flutter set up
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
       - run: flutter --version
-      - name: Flutter set up
-        run: flutter pub get
+      - name: Project set up
+        run: |
+          flutter pub get
+          dart run build_runner build --delete-conflicting-outputs
       - name: Flutter test
         run: flutter test -j 1
