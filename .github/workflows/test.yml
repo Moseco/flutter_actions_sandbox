@@ -1,0 +1,26 @@
+name: Test
+
+on:
+  pull_request:
+    types: 
+      - opened
+    branches: 
+      - 'master'
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  flutter_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+      - run: flutter --version
+      - name: Flutter set up
+        run: flutter pub get
+      - name: Flutter test
+        run: flutter test -j 1
