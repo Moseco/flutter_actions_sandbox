@@ -6,11 +6,12 @@ on:
       - opened
     branches: 
       - 'master'
+      - 'dev'
     paths-ignore:
       - '**.md'
 
 jobs:
-  flutter_test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,9 +21,9 @@ jobs:
           channel: 'stable'
           cache: true
       - run: flutter --version
-      - name: Project set up
-        run: |
-          flutter pub get
-          dart run build_runner build --delete-conflicting-outputs
+      - name: Flutter get packages
+        run: flutter pub get
+      - name: Flutter code generation
+        run: dart run build_runner build --delete-conflicting-outputs
       - name: Flutter test
         run: flutter test -j 1
