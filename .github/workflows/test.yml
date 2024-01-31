@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Create secret files
+        env:
+          DOWNLOAD_OPTIONS: ${{ secrets.download_options }}
+        run: |
+          echo $DOWNLOAD_OPTIONS > ./lib/download_options.dart
       - name: Flutter set up
         uses: subosito/flutter-action@v2
         with:
