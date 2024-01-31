@@ -43,3 +43,5 @@ app.*.map.json
 /android/app/release
 
 *.g.dart
+/lib/utils/download_options.dart
+/lib/firebase_options.dart
