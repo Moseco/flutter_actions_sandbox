@@ -1,4 +1,5 @@
-import 'package:flutter_actions_sandbox/download_options.dart';
+import 'package:flutter_actions_sandbox/firebase_options.dart';
+import 'package:flutter_actions_sandbox/utils/download_options.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -12,6 +13,7 @@ void main() {
 
     test('Secret test', () {
       expect(DownloadOptions.downloadUrl, isNotNull);
+      expect(DefaultFirebaseOptions.currentPlatform, isNotNull);
     });
   });
 }
